@@ -47,7 +47,7 @@ class UserControllerTest {
     }
 
     @Test
-    public void shouldNotAllowCreatingUserWhenUserIsNotAdmin() throws Exception {
+    public void shouldAllowCreatingUserWhenUserIsUser() throws Exception {
         User user = new User("younes", "younes@email.com");
         String body = (new ObjectMapper()).valueToTree(user).toString();
         this.mockMvc
@@ -64,7 +64,7 @@ class UserControllerTest {
     }
 
     @Test
-    public void shouldAllowCreatingUserWhenUserIsAdmin() throws Exception {
+    public void shouldNotAllowCreatingUserWhenUserIsNotUser() throws Exception {
         User user = new User("younes", "younes@email.com");
         String body = (new ObjectMapper()).valueToTree(user).toString();
         this.mockMvc
